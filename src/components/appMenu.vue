@@ -70,12 +70,13 @@ export default {
             }
         }
     .country-select select{
-            height: 3rem;
+            min-height: 3rem;
             background-color: transparent;
             border: 1px solid #fff;
             color: #fff;
             font-size: 2rem;
             margin-left: 3rem;
+            padding: 0 1rem;
 
             & option {
                 color: #000;
@@ -102,13 +103,13 @@ export default {
             .container {
                 height: 100%;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: flex-start;
                 align-items: center;
                 box-sizing: border-box;
                 padding-bottom: 1rem;
             }
             .country-select select {
-            margin-left: 0;
+                margin-left: 0;
             }
         }
     }
