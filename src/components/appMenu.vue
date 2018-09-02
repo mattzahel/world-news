@@ -120,4 +120,13 @@ export default {
             height: calc(100vh - 70px);
         }
     }
+
+    @media screen and (orientation: landscape) {
+        .menu {
+            height: auto;
+            .container {
+                height: auto;
+            }
+        }
+    }
 </style>
