@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <appTopbar />
+    <appTopbar/>
+    <appMenu />
   </div>
 </template>
 
 <script>
 import appTopbar from './components/appTopbar'
+import appMenu from './components/appMenu'
 
 export default {
   name: 'app',
   components: {
-   appTopbar
+   appTopbar,
+   appMenu
   }
 }
 </script>
@@ -24,7 +27,8 @@ export default {
     font-size: 62.5%;
   }
   body {
-    font-family: 'Lato';
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
   }
 
 </style>

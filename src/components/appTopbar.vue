@@ -4,8 +4,15 @@
             <img class="vue-logo" alt="Vue logo" src="../assets/logo.png"> 
             <h1>World News</h1>
         </div>
-        <div class="menu" @click="openMenu">
-            <font-awesome-icon icon="bars" />
+        <div class="menu-toggle">
+            <font-awesome-icon 
+                icon="bars" 
+                v-if="opened === false" 
+                @click="openMenu"/>
+            <font-awesome-icon 
+                icon="times" 
+                v-if="opened === true" 
+                @click="closeMenu"/>
         </div>
          
     </div>
@@ -13,9 +20,19 @@
 
 <script>
 export default {
+    data() {
+        return {
+            opened: false
+        }
+    },
     methods: {
         openMenu() {
-            alert('menu opened!')
+           this.opened=true;
+            document.querySelector('#menu').style.display="block";
+        },
+        closeMenu() {
+            this.opened=false;
+            document.querySelector('#menu').style.display="none";
         }
     }
 }
@@ -27,7 +44,7 @@ export default {
         width: 100vw;
         height: 20rem;
         background-color: #fff;
-        font-family: 'Lato';
+        font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         display: flex;
         justify-content: center;
@@ -48,7 +65,7 @@ export default {
             margin-right: 10px;
         }
 
-        .menu {
+        .menu-toggle {
             display: none;
 
             & svg {
@@ -71,10 +88,10 @@ export default {
                 font-size: 3.4rem;
             }
 
-            .menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            .menu-toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
         
