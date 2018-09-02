@@ -1,20 +1,35 @@
 <template>
     <div class="menu" id="menu">
-        <ul>
-            <li>All</li>
-            <li>Business</li>
-            <li>Entertainment</li>
-            <li>Health</li>
-            <li>Science</li>
-            <li>Sport</li>
-            <li>Technology</li>
-        </ul>
+        <div class="container">
+            <ul>
+                <li>All</li>
+                <li>Business</li>
+                <li>Entertainment</li>
+                <li>Health</li>
+                <li>Science</li>
+                <li>Sport</li>
+                <li>Technology</li>
+            </ul>
+            <div class="country-select">
+                <select  v-model="country">
+                    <option value="poland">
+                        PL
+                    </option>
+                    <option value="us">US</option>
+                </select>
+            </div>
+        </div>
+       
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            country: 'poland'
+        }
+    }
 }
 </script>
 
@@ -23,12 +38,19 @@ export default {
         width: 100vw;
         height: 20rem;
         background-color: #41B883;
-        
+
+        .container  {
+            max-width: 120rem;  
+            height: 20rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         & ul {
             list-style-type: none;
-            max-width: 120rem;
             height: 100%;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,11 +66,24 @@ export default {
             &:hover {
                 font-weight: 700;
                 border-bottom: .2rem solid #fff;
-              
                 }
             }
         }
+    .country-select select{
+            height: 3rem;
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            font-size: 2rem;
+            margin-left: 3rem;
+
+            & option {
+                color: #000;
+            }
     }
+       
+    }
+     
 
     @media screen and (max-width: 992px) {
         .menu {
@@ -62,8 +97,18 @@ export default {
 
             & ul {
                 flex-direction: column;
-                justify-content: flex-start;
-
+                height: auto;
+            }
+            .container {
+                height: 100%;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                box-sizing: border-box;
+                padding-bottom: 1rem;
+            }
+            .country-select select {
+            margin-left: 0;
             }
         }
     }
