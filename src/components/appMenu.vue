@@ -7,7 +7,6 @@
             </ul>
             <div class="country-select">
                 <select 
-                    v-model="country" 
                     @change = 'changeCountry'
                     id="country-input">
                     
