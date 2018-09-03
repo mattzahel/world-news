@@ -11,11 +11,16 @@
                 <li>Technology</li>
             </ul>
             <div class="country-select">
-                <select  v-model="country">
-                    <option value="poland">
+                <select 
+                    v-model="country" 
+                    @change = 'changeCountry'
+                    id="country-input">
+                    
+                    <option value="Poland">
                         PL
                     </option>
-                    <option value="us">US</option>
+
+                    <option value="United States">US</option>
                 </select>
             </div>
         </div>
@@ -25,9 +30,12 @@
 
 <script>
 export default {
-    data() {
-        return {
-            country: 'poland'
+    props: {
+        country: String
+    },
+    methods: {
+        changeCountry() {
+             this.$emit('changeCountry', document.querySelector('#country-input').value)
         }
     }
 }
@@ -44,7 +52,7 @@ export default {
             height: 20rem;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -84,7 +92,13 @@ export default {
     }
        
     }
-     
+    @media screen and (max-width: 1200px) {
+        .menu {
+            .container{
+                justify-content: space-around;
+            }
+        }
+    }
 
     @media screen and (max-width: 992px) {
         .menu {

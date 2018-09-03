@@ -1,20 +1,34 @@
 <template>
   <div id="app">
-    <appTopbar/>
-    <appMenu />
+    <app-topbar/>
+    <app-menu 
+      :country="country" v-on:changeCountry="updateCountry($event)"/>
+    <news-header :country="country"/>
   </div>
 </template>
 
 <script>
 import appTopbar from './components/appTopbar'
 import appMenu from './components/appMenu'
+import newsHeader from './components/newsHeader'
 
 export default {
   name: 'app',
-  components: {
-   appTopbar,
-   appMenu
-  }
+    components: {
+    appTopbar,
+    appMenu,
+    newsHeader
+    },
+    data() {
+      return {
+        country: 'Poland',
+      }
+    },
+    methods: {
+      updateCountry(updatedCountry) {
+        this.country = updatedCountry
+      }
+    }
 }
 </script>
 
