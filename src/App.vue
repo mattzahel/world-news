@@ -39,25 +39,42 @@ export default {
       }
     }, 
     created() {
-      axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`)
+      if(this.category==='all') {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`).then((response)  =>  {
+        console.log(response.data.articles)
+        this.articles = response.data.articles
+      }, (error)  =>  {
+        console.log(error)
+      })
+    } else {
+       axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`)
       .then((response)  =>  {
         console.log(response.data.articles)
         this.articles = response.data.articles
       }, (error)  =>  {
         console.log(error)
       })
+    }
     },
     beforeUpdate() {
-     axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`)
+      if(this.category==='all') {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`).then((response)  =>  {
+        console.log(response.data.articles)
+        this.articles = response.data.articles
+      }, (error)  =>  {
+        console.log(error)
+      })
+    } else {
+       axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`)
       .then((response)  =>  {
         console.log(response.data.articles)
         this.articles = response.data.articles
       }, (error)  =>  {
         console.log(error)
       })
-      
     }
-}
+  },    
+  }
 </script>
 
 <style lang="scss">
