@@ -2,13 +2,8 @@
     <div class="menu" id="menu">
         <div class="container">
             <ul>
-                <li>All</li>
-                <li>Business</li>
-                <li>Entertainment</li>
-                <li>Health</li>
-                <li>Science</li>
-                <li>Sport</li>
-                <li>Technology</li>
+                <li v-for="category in categories" 
+                @click='changeCategory' :key="category.index">{{category}}</li>
             </ul>
             <div class="country-select">
                 <select 
@@ -16,11 +11,8 @@
                     @change = 'changeCountry'
                     id="country-input">
                     
-                    <option value="Poland">
-                        PL
-                    </option>
-
-                    <option value="United States">US</option>
+                    <option value="pl">PL</option>
+                    <option value="us">US</option>
                 </select>
             </div>
         </div>
@@ -31,11 +23,20 @@
 <script>
 export default {
     props: {
-        country: String
+        country: String,
+        category: String
+    },
+    data() {
+        return {
+            categories: ['All', 'Business', 'Entertainment', 'Health', 'Science', 'Sport', 'Technology']
+        }
     },
     methods: {
         changeCountry() {
              this.$emit('changeCountry', document.querySelector('#country-input').value)
+        },
+        changeCategory(e) {
+            this.$emit('changeCategory', e.target.innerText.toLowerCase())
         }
     }
 }

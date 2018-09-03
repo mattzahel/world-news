@@ -1,6 +1,6 @@
 <template>
     <div class="newsHeader">
-        <h2 class="newsHeader__heading">Top news in {{country}}</h2>
+        <h2 class="newsHeader__heading">Top news in {{country | upperCase }}</h2>
         <p class="newsHeader__date">
             <span class="date-day">{{getDay}}</span>, {{getMonth}} {{getDayNumber}}
         </p>
@@ -30,8 +30,12 @@ export default {
             const d = new Date();
             return d.getDate();
         }
-        
-    }
+    },
+    filters: {
+        upperCase(value) {
+            return value.toUpperCase()      
+  }
+}
 }
 </script>
 

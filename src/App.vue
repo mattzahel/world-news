@@ -2,7 +2,10 @@
   <div id="app">
     <app-topbar/>
     <app-menu 
-      :country="country" v-on:changeCountry="updateCountry($event)"/>
+      :country="country" :category="category"
+      v-on:changeCountry="updateCountry($event)"
+      v-on:changeCategory="updateCategory($event)"
+     />
     <news-header :country="country"/>
   </div>
 </template>
@@ -21,12 +24,16 @@ export default {
     },
     data() {
       return {
-        country: 'Poland',
+        country: 'pl',
+        category: ''
       }
     },
     methods: {
       updateCountry(updatedCountry) {
         this.country = updatedCountry
+      },
+      updateCategory(updatedCategory) {
+        this.category = updatedCategory
       }
     }
 }
