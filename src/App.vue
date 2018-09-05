@@ -7,27 +7,28 @@
       v-on:changeCategory="updateCategory($event)"
      />
     <news-header :country="country"/>
+    <show-news :country="country" :category="category"/>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 import appTopbar from './components/appTopbar'
 import appMenu from './components/appMenu'
 import newsHeader from './components/newsHeader'
+import showNews from './components/showNews'
 
 export default {
   name: 'app',
     components: {
     appTopbar,
     appMenu,
-    newsHeader
+    newsHeader,
+    showNews
     },
     data() {
       return {
         country: 'pl',
-        category: '',
-        articles: []
+        category: ''
       }
     },
     methods: {
@@ -38,26 +39,7 @@ export default {
         this.category = updatedCategory
       }
     }, 
-    created() {
-      axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`)
-      .then((response)  =>  {
-        console.log(response.data.articles)
-        this.articles = response.data.articles
-      }, (error)  =>  {
-        console.log(error)
-      })
-    },
-    beforeUpdate() {
-     axios.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&category=${this.category}&apiKey=18a6eb6a466f47dbaaee83a6a5b2f5c9`)
-      .then((response)  =>  {
-        console.log(response.data.articles)
-        this.articles = response.data.articles
-      }, (error)  =>  {
-        console.log(error)
-      })
-      
-    }
-}
+  }
 </script>
 
 <style lang="scss">
