@@ -1,22 +1,19 @@
 <template>
-    <div class="menu" id="menu">
-        <div class="container">
-            <ul>
-                <li v-for="category in categories" 
-                @click='changeCategory' :key="category.index">{{category}}</li>
-            </ul>
-            <div class="country-select">
-                <select 
-                    @change = 'changeCountry'
-                    id="country-input">
-                    
-                    <option value="pl">PL</option>
-                    <option value="us">US</option>
-                </select>
-            </div>
+<div class="menu" id="menu">
+    <div class="container">
+        <ul>
+            <li v-for="category in categories" @click='changeCategory' :key="category.index">{{category}}</li>
+        </ul>
+        <div class="country-select">
+            <select @change='changeCountry' id="country-input">
+
+                <option value="pl">PL</option>
+                <option value="us">US</option>
+            </select>
         </div>
-       
     </div>
+
+</div>
 </template>
 
 <script>
@@ -32,7 +29,7 @@ export default {
     },
     methods: {
         changeCountry() {
-             this.$emit('changeCountry', document.querySelector('#country-input').value)
+            this.$emit('changeCountry', document.querySelector('#country-input').value)
         },
         changeCategory(e) {
             this.$emit('changeCategory', e.target.innerText.toLowerCase())

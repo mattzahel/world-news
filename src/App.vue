@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-topbar/>
-    <app-menu 
+    <app-menu
       :country="country" :category="category"
       v-on:changeCountry="updateCountry($event)"
       v-on:changeCategory="updateCategory($event)"
@@ -38,7 +38,7 @@ export default {
       updateCategory(updatedCategory) {
         this.category = updatedCategory
       }
-    }, 
+    },
   }
 </script>
 
