@@ -141,6 +141,7 @@ export default {
                     }
                     .article-source {
                         color: #666;
+                        text-align: right;
                     }
                 }
                 &__heading {
@@ -161,6 +162,9 @@ export default {
                     }
                     .article-author {
                         color: #666;
+                        text-align: right;
+                        max-width: 60%;
+                        word-wrap: break-word;
                     }
                 }
             }
@@ -194,6 +198,20 @@ export default {
                     }
                 }
             }
+            .news:first-child {
+                padding-top: 0;
+            }
         }
+
+        
+        @media screen and (max-width: 992px) and (min-width: 768px) {
+            .news {
+
+                &__image, &__image--error {
+                    min-height: 35rem;
+                    min-width: 0;
+                    }
+                }
+            }
    
 </style>
