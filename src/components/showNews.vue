@@ -20,7 +20,7 @@
                     {{article.description}}
                 </p>
                 <div class="news__text__footer">
-                    <a :href="article.url" target="_blank">Czytaj dalej</a>
+                    <a :href="article.url" target="_blank">Read more</a>
                     <span class="article-author" v-if="article.author!=null">Author: {{article.author}}</span>
                 </div>
                 </div>

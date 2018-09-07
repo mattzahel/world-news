@@ -7,8 +7,9 @@
         <div class="country-select">
             <select @change='changeCountry' id="country-input">
 
-                <option value="pl">PL</option>
-                <option value="us">US</option>
+                <option v-for="country in countries" :key="country.index" :value="country.value">
+                    {{country.fullVal | upperCase}}
+                </option>
             </select>
         </div>
     </div>
@@ -24,12 +25,27 @@ export default {
     },
     data() {
         return {
-            categories: ['All', 'Business', 'Entertainment', 'Health', 'Science', 'Sport', 'Technology']
+            categories: ['All', 'Business', 'Entertainment', 'Health', 'Science', 'Sport', 'Technology'],
+            countries: [
+                {value: 'pl', fullVal: 'Poland'},
+                {value: 'us', fullVal: 'United States'},
+                {value: 'gb', fullVal: 'Great Britain'},
+                {value: 'ca', fullVal: 'Canada'},
+                {value: 'mx', fullVal: 'Mexico'},
+                {value: 'fr', fullVal: 'France'},
+                {value: 'de', fullVal: 'Germany'},
+                {value: 'nl', fullVal: 'Netherland'},
+                {value: 'be', fullVal: 'Belgium'},
+                {value: 'it', fullVal: 'Italy'},
+                {value: 'ie', fullVal: 'India'},
+                {value: 'ru', fullVal: 'Russia'}
+            ]
         }
     },
     methods: {
         changeCountry() {
-            this.$emit('changeCountry', document.querySelector('#country-input').value)
+            this.$emit('changeCountry', 
+            document.querySelector('#country-input').value)
         },
         changeCategory(e) {
             this.$emit('changeCategory', e.target.innerText.toLowerCase())
@@ -41,7 +57,15 @@ export default {
             e.target.classList.add('active')
             }
         },
-    }
+    },
+     filters: {
+         upperCase(str) {
+             return str.replace(/\w\S*/g, function (txt) {
+                 return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+             });
+
+         }
+     }
 }
 </script>
 
@@ -104,6 +128,11 @@ export default {
         .menu {
             .container{
                 justify-content: space-around;
+                padding: 0 6rem;
+                box-sizing: border-box;
+            }
+            .country-select select {
+                max-width: 12rem;
             }
         }
     }
@@ -132,6 +161,7 @@ export default {
             }
             .country-select select {
                 margin-left: 0;
+                max-width: none;
             }
         }
     }
