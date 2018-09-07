@@ -8,6 +8,7 @@
      />
     <news-header :country="country"/>
     <show-news :country="country" :category="category"/>
+    <app-footer />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import appTopbar from './components/appTopbar'
 import appMenu from './components/appMenu'
 import newsHeader from './components/newsHeader'
 import showNews from './components/showNews'
+import appFooter from './components/appFooter'
 
 export default {
   name: 'app',
@@ -23,7 +25,8 @@ export default {
     appTopbar,
     appMenu,
     newsHeader,
-    showNews
+    showNews,
+    appFooter
     },
     data() {
       return {
