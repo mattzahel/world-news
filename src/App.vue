@@ -49,10 +49,13 @@ export default {
   }
   html {
     font-size: 62.5%;
+    width: 100%;
   }
   body {
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
   }
 
 </style>
