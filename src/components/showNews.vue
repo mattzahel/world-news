@@ -20,8 +20,8 @@
                     {{article.description}}
                 </p>
                 <div class="news__text__footer">
-                    <a :href="article.url">Czytaj dalej</a>
-                    <span class="article-author">Author: {{article.author}}</span>
+                    <a :href="article.url" target="_blank">Czytaj dalej</a>
+                    <span class="article-author" v-if="article.author!=null">Author: {{article.author}}</span>
                 </div>
                 </div>
             </div>
@@ -154,6 +154,7 @@ export default {
                     font-size: 1.6rem;
                     display: flex;
                     justify-content: space-between;
+                    padding-top: 1rem;
                 
                     & a {
                          color: #41B883;
@@ -167,6 +168,32 @@ export default {
 
         .news:not(:last-child) {
             border-bottom: 2px solid #f3f3f3;
+        }
+
+        @media screen and (max-width: 992px) {
+            .news {
+                flex-direction: column;
+
+                &__image, &__image--error {
+                    width: 100%;
+                    height: auto;
+                    min-height: 25rem;
+                    min-width: 0;
+                }
+
+                &__text {
+                    &__info {
+                        padding-top: 1rem;
+                    }
+                    
+                    &__heading {
+                        word-wrap: break-word;
+                    }
+                    &__footer {
+                        padding-top: 1rem;
+                    }
+                }
+            }
         }
    
 </style>
