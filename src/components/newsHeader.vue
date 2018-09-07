@@ -1,41 +1,40 @@
 <template>
-    <div class="newsHeader">
-        <h2 class="newsHeader__heading">Top news in {{country | upperCase }}</h2>
-        <p class="newsHeader__date">
-            <span class="date-day">{{getDay}}</span>, {{getMonth}} {{getDayNumber}}
-        </p>
-    </div>
+<div class="newsHeader">
+    <h2 class="newsHeader__heading">Top news in {{country | upperCase }}</h2>
+    <p class="newsHeader__date">
+        <span class="date-day">{{getDay}}</span>, {{getMonth}} {{getDayNumber}}
+    </p>
+</div>
 </template>
 
 <script>
 export default {
     props: {
             country: String,
-    },
-    computed: {
-        getDay(){
-            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var d = new Date();
-            var dayName = days[d.getDay()];
-            return dayName;
         },
-        getMonth() {
-            const months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"
-            ];
-            const d = new Date();
-            const monthName = months[d.getMonth()]
-            return monthName
+        computed: {
+            getDay() {
+                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                var d = new Date();
+                var dayName = days[d.getDay()];
+                return dayName;
+            },
+            getMonth() {
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                const d = new Date();
+                const monthName = months[d.getMonth()]
+                return monthName
+            },
+            getDayNumber() {
+                const d = new Date();
+                return d.getDate();
+            }
         },
-        getDayNumber() {
-            const d = new Date();
-            return d.getDate();
+        filters: {
+            upperCase(value) {
+                return value.toUpperCase()
+            }
         }
-    },
-    filters: {
-        upperCase(value) {
-            return value.toUpperCase()      
-  }
-}
 }
 </script>
 
@@ -60,14 +59,12 @@ export default {
             font-weight: 700;
         }
     }
-
     @media screen and (max-width: 1200px) {
         .newsHeader {
             justify-content: space-around;
             margin: 5rem 2rem;
         }
     }
-
     @media screen and (max-width: 992px) {
         .newsHeader {
             &__heading {
@@ -78,11 +75,9 @@ export default {
             }
         }
     }
-
-     @media screen and (max-width: 576px) {
+    @media screen and (max-width: 576px) {
         .newsHeader {
             justify-content: space-between;
-
             &__heading {
                 font-size: 2rem;
             }

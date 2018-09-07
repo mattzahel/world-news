@@ -1,13 +1,9 @@
 <template>
   <div id="app">
-    <app-topbar/>
-    <app-menu
-      :country="country" :category="category"
-      v-on:changeCountry="updateCountry($event)"
-      v-on:changeCategory="updateCategory($event)"
-     />
-    <news-header :country="country"/>
-    <show-news :country="country" :category="category"/>
+    <app-topbar />
+    <app-menu :country="country" :category="category" v-on:changeCountry="updateCountry($event)" v-on:changeCategory="updateCategory($event)" />
+    <news-header :country="country" />
+    <show-news :country="country" :category="category" />
     <app-footer />
   </div>
 </template>
@@ -21,32 +17,34 @@ import appFooter from './components/appFooter'
 
 export default {
   name: 'app',
-    components: {
+  components: {
     appTopbar,
     appMenu,
     newsHeader,
     showNews,
     appFooter
+  },
+  data() {
+    return {
+      country: 'pl',
+      category: ''
+    }
+  },
+  methods: {
+    updateCountry(updatedCountry) {
+      this.country = updatedCountry
     },
-    data() {
-      return {
-        country: 'pl',
-        category: ''
-      }
-    },
-    methods: {
-      updateCountry(updatedCountry) {
-        this.country = updatedCountry
-      },
-      updateCategory(updatedCategory) {
-        this.category = updatedCategory
-      }
-    },
-  }
+    updateCategory(updatedCategory) {
+      this.category = updatedCategory
+    }
+  },
+}
 </script>
 
 <style lang="scss">
-  *, *::after, *::before {
+  *,
+  *::after,
+  *::before {
     margin: 0;
     padding: 0;
   }
@@ -60,5 +58,4 @@ export default {
     width: 100%;
     overflow-x: hidden;
   }
-
 </style>

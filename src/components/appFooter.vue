@@ -29,7 +29,6 @@ export default {
         justify-content: center;
         align-items: center;
         font-size: 1.4rem;
-
         a {
             color: #fff;
             cursor: pointer;
