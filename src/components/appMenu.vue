@@ -2,7 +2,7 @@
 <div class="menu" id="menu">
     <div class="container">
         <ul>
-            <li v-for="category in categories" @click='changeCategory' :key="category.index">{{category}}</li>
+            <li v-for="category in categories" class="category-item" @click='changeCategory' :key="category.index">{{category}}</li>
         </ul>
         <div class="country-select">
             <select @change='changeCountry' id="country-input">
@@ -33,7 +33,14 @@ export default {
         },
         changeCategory(e) {
             this.$emit('changeCategory', e.target.innerText.toLowerCase())
-        }
+            
+            var categories = document.querySelectorAll('.category-item');
+            for (var i = 0; i < categories.length; i++) {
+            categories[i].classList.remove('active')
+
+            e.target.classList.add('active')
+            }
+        },
     }
 }
 </script>
@@ -69,7 +76,6 @@ export default {
                 margin: 2rem;
             
             &:hover {
-                font-weight: 700;
                 border-bottom: .2rem solid #fff;
                 }
             }
@@ -86,6 +92,11 @@ export default {
             & option {
                 color: #000;
             }
+    }
+
+    .active {
+        font-weight: 700;
+        border-bottom: .2rem solid #fff;
     }
        
     }
