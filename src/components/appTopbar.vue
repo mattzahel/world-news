@@ -1,6 +1,6 @@
 <template>
 <div class="topbar">
-    <div class="logo">
+    <div class="logo" id="logo">
         <img class="vue-logo" alt="Vue logo" src="../assets/logo.png">
         <h1>World News</h1>
     </div>

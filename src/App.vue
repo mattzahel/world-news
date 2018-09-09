@@ -5,6 +5,7 @@
     <news-header :country="country" />
     <show-news :country="country" :category="category" />
     <app-footer />
+    <scrollBack />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import appMenu from './components/appMenu'
 import newsHeader from './components/newsHeader'
 import showNews from './components/showNews'
 import appFooter from './components/appFooter'
+import scrollBack from './components/scrollBack'
 
 export default {
   name: 'app',
@@ -22,7 +24,8 @@ export default {
     appMenu,
     newsHeader,
     showNews,
-    appFooter
+    appFooter,
+    scrollBack
   },
   data() {
     return {
