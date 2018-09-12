@@ -7,7 +7,7 @@
         </div>
         <div class="news__text">
             <div class="news__text__info">
-                <span class="article-date">{{article.publishedAt}}</span>
+                <span class="article-date">{{article.publishedAt.slice(0,10)}} | {{article.publishedAt.slice(11,16)}}</span>
                 <span class="article-source">{{article.source.name}}</span>
             </div>
             <h2 class="news__text__heading">
