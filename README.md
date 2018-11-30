@@ -9,9 +9,9 @@ Checkout live website here: [live preview](https://sharp-wright-3e735f.netlify.c
 ## Project setup
 
 ### Clone
-- Clone this repo to your local machine :clipboard:
-> https://github.com/mattzahel/world-news.git 
-
+``` 
+https://github.com/mattzahel/world-news.git 
+```
 ### Install
 ```
 npm install
