@@ -10,10 +10,11 @@ Checkout live website here: [live preview](https://sharp-wright-3e735f.netlify.c
 
 ### Clone
 ``` 
-https://github.com/mattzahel/world-news.git 
+git clone https://github.com/mattzahel/world-news.git 
 ```
 ### Install
 ```
+cd world-news
 npm install
 ```
 ### Compile and hot-reload for development
